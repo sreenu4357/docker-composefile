@@ -1,0 +1,34 @@
+version: "3"
+services:
+  mobile:
+    container_name: mobile-cont
+    build: ./mobile
+    ports:
+      - "8090:80"
+    volumes:
+      - "/sreenu-v"
+    networks:
+      - "king"
+
+  movie:
+    container_name: movie-cont
+    build: ./movie
+    ports:
+      - "8091:80"
+    volumes:
+      - "sreenu12-v"
+    networks:
+      - "fff"
+
+  train:
+    container_name: train-cont
+    build: ./train
+    ports:
+      - "8092:80"
+
+
+networks:
+  king:
+    driver: bridge
+  fff:
+    driver: bridge
