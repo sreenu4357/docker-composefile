@@ -1,0 +1,40 @@
+	yum install docker -y 
+	systemctl start docker
+	docker swarm init --advertise-addr (private ip address)
+	docker node ps
+	docker service create --name flm --publish 8083:80 nginx
+	docker service ls
+	docker service scale servicename=4  ----- -------scale up
+	docker service scale servicename=2 ---------------scale down
+
+	docker service create –name flm –replicas 6 –publish 8085:80 nginx    = mentioning the replicas in cammand
+
+	docker service ps servicename 
+	docker service rm servicename   ==== deleting the services it will delete the containers as well as
+
+	docker service create –name cycle –publish 9999:80 –replicas=6 shaikmustafa/cycle
+
+	docker service update –image shaikmustafa/mygame cycle      ====== by updating cycle service to mygame service but it wont change servicename in server 
+
+	docker service update –image shaikmustafa/dm cycle  ==== by upadting cycle service to digital market service 
+
+v1- cycle service
+v2-mygame
+v3-DM
+now we need to rollback to v2 so
+	docker service rollback cycle
+
+•	docker service logs servicename
+•	docker service ps servicename   ==== to know the containers list to the that particular service
+docker service inspect service name
+
+•	another way to generate the token and based on requirement we can add servers with worker node or manager node
+docker swarm join-token worker 
+docker swaem join-token manager      
+
+docker swarm leave  -------- it will down the servers 
+
+
+•	if you remove any server in our cluster so we need to do frist left (docker swarm leave) the server and then we need remove the server (docker node rm node ID )
+
+	the combination of docker-compose + docker swarm = docker stack
