@@ -38,3 +38,16 @@ docker swarm leave  -------- it will down the servers
 •	if you remove any server in our cluster so we need to do frist left (docker swarm leave) the server and then we need remove the server (docker node rm node ID )
 
 	the combination of docker-compose + docker swarm = docker stack
+
+Docker compose:                                                              Docker swarm:
+                                               
+All services ----- single server                                   single service ------ multiple servers
+Each service ------ single container                          each service -------- multiple containers
+
+                                                    + 
+
+                                              Docker Stack:
+
+                 All services ---------------- multiple servers
+                each service ------ multiple containers
+
