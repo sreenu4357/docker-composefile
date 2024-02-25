@@ -1,0 +1,39 @@
+INSTALL AWS CLI
+                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+		unzip awscliv2.zip
+		sudo ./aws/install
+ll -a
+vim .bashrc
+insert- export PATH=$PATH:/usr/local/bin/
+then save and exit
+after that - source .bashrc
+aws --version
+
+- INSTALL KOPS & KUBECTL
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+then chmod +x kubectlfile
+mv kubectlfile /usr/local/bin/
+kubectl version
+
+-
+wget https://github.com/kubernetes/kops/releases/download/v1.24.1/kops-linux-amd64
+then chmod +x kopsfile
+mv kopsfile /usr/local/bin/kops
+kops version
+-
+aws configure
+(create user on aws console iam)
+
+create S3 bucket via cammand
+- aws s3 mb s3://bucketname
+to enable the bucket versioning for save the termination 
+-
+cluster info particularlly mentioning
+-  export KOPS_STATE_STORE=s3://sreenu.flm
+ssh key genaration (bez to connect operator(local server) to API sever(master server)
+
+-
+create cluster infra.structure
+-kops create cluster --name sreenu.k8s.local --zones us-east-1d --master-size t2.medium --node-size t2.micro --node-count 2
+kubectl get node
+ 
