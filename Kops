@@ -36,4 +36,13 @@ ssh key genaration (bez to connect operator(local server) to API sever(master se
 create cluster infra.structure
 -kops create cluster --name sreenu.k8s.local --zones us-east-1d --master-size t2.medium --node-size t2.micro --node-count 2
 kubectl get node
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster sreenu.k8s.local
+ * edit your node instance group: kops edit ig --name=sreenu.k8s.local nodes-us-east-1c
+ * edit your master instance group: kops edit ig --name=sreenu.k8s.local master-us-east-1c
+
+Finally configure your cluster with: kops update cluster --name sreenu.k8s.local --yes --admin
+
  
