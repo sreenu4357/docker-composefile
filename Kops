@@ -45,4 +45,6 @@ Suggestions:
 
 Finally configure your cluster with: kops update cluster --name sreenu.k8s.local --yes --admin
 
+kops update cluster --name sreenu.k8s.local --yes
+
  
