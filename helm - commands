@@ -1,0 +1,14 @@
+helm Install
+-> curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+-> chmod +x get_helm.sh
+-> sh get_helm.sh
+-> helm repo list
+-> helm version
+->  helm repo add myhelm https://charts.helm.sh/incubator
+-> helm repo remove myhelm(reponame)
+--> helm install sreenu .
+-> helm list
+->  helm upgrade sreenu .
+-> helm rollback sreenu 1  --> sreenu release name
+->  helm install devops --debug --dry-run . --- previewplan
+-> helm history sreenu
