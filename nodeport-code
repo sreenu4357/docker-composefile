@@ -1,0 +1,25 @@
+apiVersion: vl 
+kind: Pod
+metadata:
+ name: pod-1 
+ labels:
+  env: test 
+spec:
+ containers:
+  - name: cont-1
+    image: nginx
+    ports:
+     - containerPort: 80
+
+
+apiVersion: vl 
+kind: Service 
+metadata:
+ name: sreenu-flm
+spec:
+ type: NodePorl 
+ selector:
+  env: test 
+ ports:
+  - port: 80
+    targetPort: 80
